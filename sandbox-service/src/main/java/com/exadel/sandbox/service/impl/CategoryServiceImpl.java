@@ -33,6 +33,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @AllArgsConstructor
 @Service
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
 
     private static final Integer DEFAULT_PAGE_NUMBER = 0;
@@ -45,7 +46,6 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    @Transactional
     public void deleteCategoryById(Long categoryId) {
 
         Optional<Category> categoryOptional = categoryRepository.findById(categoryId);
